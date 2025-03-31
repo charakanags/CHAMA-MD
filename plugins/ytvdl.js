@@ -12,7 +12,7 @@ cmd({
     category: "main", 
     use: '.song < Yt url or Name >', 
     filename: __filename 
-}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
+}, async (conn, mek, m, { from, prefix, quoted, q, reply, pushname, location, userTime }) => { 
     try { 
         if (!q) return await reply("Please provide a YouTube URL or song name.");
         
@@ -29,19 +29,23 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
 
-        // Song Details Message
-        let ytmsg = `╭━━━〔 *CHAMA-MD* 〕━━━┈⊷
+        // New Song/Video Details Message
+        let ytmsg = `╭━━━〔 CHAMA-MD 〕━━━┈⊷
 ┃▸╭───────────
-┃▸┃๏ *VIDEO DOWNLOADER*
+┃▸┃๏ VIDEO DOWNLOADER
 ┃▸└───────────···๏
 ╰────────────────┈⊷
 ╭━━❐━⪼
-┇๏ *Title* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name}
-┇๏ *Link* -  ${yts.url}
-╰━━❑━⪼`;
+┇๏ *HELLO* ${pushname}
+┇๏ *Your Location:* _${location}_
+┇๏ *Current Time:* _${userTime}_
+┇๏ *Title:* ${yts.title}
+┇๏ *Duration:* ${yts.timestamp}
+┇๏ *Views:* ${yts.views}
+┇๏ *Channel:* ${yts.author.name}
+┇๏ *Link:* ${yts.url}
+╰━━❑━⪼
+> Powered by CHAMA-AI`;
 
         // Send video details and thumbnail
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
@@ -54,7 +58,7 @@ cmd({
             document: { url: data.result.download_url }, 
             mimetype: "video/mp4", 
             fileName: `${data.result.title}.mp4`, 
-            caption: `> *${yts.title}*\n> *© Pᴏᴡᴇʀᴇʀᴇᴅ Bʏ CHAMA-Aɪ ♡*`
+            caption: `> ${yts.title}\n> Powered by CHAMA-AI`
         }, { quoted: mek });
 
     } catch (e) {
@@ -67,13 +71,13 @@ cmd({
 
 cmd({ 
     pattern: "song", 
-    alias: ["ytdl3", "play"], 
+    alias: ["ytdl3", "play","s"], 
     react: "🎶", 
     desc: "Download YouTube song", 
     category: "main", 
     use: '.song < Yt url or Name >', 
     filename: __filename 
-}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
+}, async (conn, mek, m, { from, prefix, quoted, q, reply, pushname, location, userTime }) => { 
     try { 
         if (!q) return await reply("Please provide a YouTube URL or song name.");
         
@@ -90,20 +94,23 @@ cmd({
             return reply("Failed to fetch the audio. Please try again later.");
         }
 
-        // Song Details Message
-        let ytmsg = `╭━━━〔 *CHAMA-MD* 〕━━━┈⊷
+        // New Song/Video Details Message
+        let ytmsg = `╭━━━〔 CHAMA-MD 〕━━━┈⊷
 ┃▸╭───────────
-┃▸┃๏ *MUSIC DOWNLOADER*
+┃▸┃๏ MUSIC DOWNLOADER
 ┃▸└───────────···๏
 ╰────────────────┈⊷
 ╭━━❐━⪼
-┇๏ *Tital* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name} 
-┇๏ *Link* -  ${yts.url}
+┇๏ *HELLO* ${pushname}
+┇๏ *Your Location:* _${location}_
+┇๏ *Current Time:* _${userTime}_
+┇๏ *Title:* ${yts.title}
+┇๏ *Duration:* ${yts.timestamp}
+┇๏ *Views:* ${yts.views}
+┇๏ *Channel:* ${yts.author.name} 
+┇๏ *Link:* ${yts.url}
 ╰━━❑━⪼
-> *© Pᴏᴡᴇʀᴇᴅ Bʏ CHAMA-Aɪ ♡*`;
+> Powered by CHAMA-AI`;
 
         // Send song details and thumbnail
         await conn.sendMessage(from, { image: { url: data.result.image || '' }, caption: ytmsg }, { quoted: mek });
@@ -119,7 +126,7 @@ cmd({
             document: { url: data.result.downloadUrl }, 
             mimetype: "audio/mpeg", 
             fileName: `${data.result.title}.mp3`, 
-            caption: `> *${yts.title}*\n> *© Pᴏᴡᴇʀᴇʀᴇᴅ Bʏ CHAMA-Aɪ ♡*`
+            caption: `> ${yts.title}\n> Powered by CHAMA-AI`
         }, { quoted: mek });
 
     } catch (e) {
