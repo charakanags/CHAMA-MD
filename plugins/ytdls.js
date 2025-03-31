@@ -4,7 +4,7 @@ const axios = require("axios");
 
 cmd({
   pattern: "song",
-  alias: ["mp3", "ytmp3"],
+  alias: ["mp3", "ytmp3","s"],
   react: '🎧',
   desc: "Download audio from YouTube",
   category: "music",
@@ -47,13 +47,13 @@ cmd({
 
     // Send song details with thumbnail
     const captionText = `🎵 *Song Details:*\n\n`
-      + `👋 *HELLO* ${pushname}\n`
+      + `👋 *HELLO* ${pushname}\n`;
       + `🌍 *Your Location:* _${location}_\n`
       + `⏰ *Current Time:* _${userTime}_\n`
       + `📌 *Title:* ${title}\n`
       + `⏳ *Duration:* ${duration}\n`
       + `📺 *Channel:* ${channel}\n`
-      + `🔗 *YouTube Link:* ${videoUrl}\n\n`;
+      + `🔗 *YouTube Link:* ${videoUrl}\n\n`
 
     // Send Image with details
     await conn.sendMessage(from, {
@@ -61,33 +61,19 @@ cmd({
       caption: captionText
     }, { quoted: mek });
 
-    // Short message
-    const shortMessage = `Here's your song, *${title}* 🎶 Enjoy!`;
-
-    // 1. Send MP3 as a standard audio message
+    // Send both MP3 and Document separately (audio file)
     await conn.sendMessage(from, {
       audio: { url: mp3Url },
       mimetype: 'audio/mpeg',
-      ptt: false,  // Standard audio message
-      fileName: `${title}.mp3`,
-      caption: shortMessage
+      ptt: false,
+      fileName: `${title}.mp3`
     });
 
-    // 2. Send MP3 as a voice note (ptt: true for voice note)
-    await conn.sendMessage(from, {
-      audio: { url: mp3Url },
-      mimetype: 'audio/mpeg',
-      ptt: true,   // This makes it a voice note
-      fileName: `${title}.mp3`,
-      caption: shortMessage
-    });
-
-    // 3. Send the MP3 as a document (downloadable file)
+    // Send the MP3 as a document
     await conn.sendMessage(from, {
       document: { url: mp3Url },
       mimetype: 'audio/mpeg',
-      fileName: `${title}.mp3`,
-      caption: shortMessage
+      fileName: `${title}.mp3`
     });
 
     await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
@@ -96,18 +82,13 @@ cmd({
     console.error("Error:", error);
     await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
 
-    // Notify user without error details
-    reply("❌ Sorry, an error occurred while processing your request. Please try again later.");
+    // Send the error message without "Song Command Error Logs"
+    const errorMessage = `
+*Error Message:* ${error.message}
+*Stack Trace:* ${error.stack || "Not available"}
+*Timestamp:* ${new Date().toISOString()}
+`;
 
-    // Send the error to bot owner (94783314361)
-    const errorMessage = `🚨 *Bot Error Alert!*\n\n`
-      + `📌 *Command:* .song\n`
-      + `👤 *User:* ${pushname}\n`
-      + `📍 *Group/Chat:* ${from}\n`
-      + `⏳ *Time:* ${new Date().toLocaleString()}\n\n`
-      + `💢 *Error:* ${error.message}\n`
-      + `📜 *Stack Trace:* ${error.stack ? error.stack.split("\n")[0] : "N/A"}`;
-
-    await conn.sendMessage("94783314361@s.whatsapp.net", { text: errorMessage });
+    await conn.sendMessage(from, { text: errorMessage }, { quoted: mek });
   }
 });
