@@ -1,104 +1,129 @@
-const { cmd } = require("../command");
-const yts = require("yt-search");
-const axios = require("axios");
+const config = require('../config');
+const { cmd } = require('../command');
+const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 
-cmd({
-  pattern: "song",
-  alias: ["mp4", "ytmp4"],
-  react: '🎬',
-  desc: "Download video from YouTube",
-  category: "music",
-  use: ".song <video name>",
-  filename: __filename
-}, async (conn, mek, msg, { from, args, reply, location, userTime, pushname }) => {
-  try {
-    if (!args.length) {
-      await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-      return reply("Please provide a video name. Example: .song Moye Moye");
+// video download
+
+cmd({ 
+    pattern: "mp4", 
+    alias: ["video"], 
+    react: "🎥", 
+    desc: "Download YouTube video", 
+    category: "main", 
+    use: '.song < Yt url or Name >', 
+    filename: __filename 
+}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
+    try { 
+        if (!q) return await reply("Please provide a YouTube URL or song name.");
+        
+        const yt = await ytsearch(q);
+        if (yt.results.length < 1) return reply("No results found!");
+        
+        let yts = yt.results[0];  
+        let apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp4?url=${encodeURIComponent(yts.url)}`;
+        
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        
+        if (data.status !== 200 || !data.success || !data.result.download_url) {
+            return reply("Failed to fetch the video. Please try again later.");
+        }
+
+        // Song Details Message
+        let ytmsg = `╭━━━〔 *CHAMA-MD* 〕━━━┈⊷
+┃▸╭───────────
+┃▸┃๏ *VIDEO DOWNLOADER*
+┃▸└───────────···๏
+╰────────────────┈⊷
+╭━━❐━⪼
+┇๏ *Title* -  ${yts.title}
+┇๏ *Duration* - ${yts.timestamp}
+┇๏ *Views* -  ${yts.views}
+┇๏ *Author* -  ${yts.author.name}
+┇๏ *Link* -  ${yts.url}
+╰━━❑━⪼`;
+
+        // Send video details and thumbnail
+        await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
+        
+        // Send video file
+        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "video/mp4" }, { quoted: mek });
+        
+        // Send document file (optional)
+        await conn.sendMessage(from, { 
+            document: { url: data.result.download_url }, 
+            mimetype: "video/mp4", 
+            fileName: `${data.result.title}.mp4`, 
+            caption: `> *${yts.title}*\n> *© Pᴏᴡᴇʀᴇʀᴇᴅ Bʏ CHAMA-Aɪ ♡*`
+        }, { quoted: mek });
+
+    } catch (e) {
+        console.log(e);
+        reply("An error occurred. Please try again later.");
     }
+});  
+       
+// song download
 
-    await conn.sendMessage(from, { react: { text: '🎬', key: mek.key } });
+cmd({ 
+    pattern: "song", 
+    alias: ["ytdl3", "play"], 
+    react: "🎶", 
+    desc: "Download YouTube song", 
+    category: "main", 
+    use: '.song < Yt url or Name >', 
+    filename: __filename 
+}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
+    try { 
+        if (!q) return await reply("Please provide a YouTube URL or song name.");
+        
+        const yt = await ytsearch(q);
+        if (yt.results.length < 1) return reply("No results found!");
+        
+        let yts = yt.results[0];  
+        let apiUrl = `https://apis.davidcyriltech.my.id/youtube/mp3?url=${encodeURIComponent(yts.url)}`;
+        
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        
+        if (data.status !== 200 || !data.success || !data.result.downloadUrl) {
+            return reply("Failed to fetch the audio. Please try again later.");
+        }
 
-    // Search for the video on YouTube
-    const query = args.join(" ");
-    const searchResults = await yts(query);
-    if (!searchResults.videos.length) {
-      await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-      return reply("❌ No results found.");
+        // Song Details Message
+        let ytmsg = `╭━━━〔 *CHAMA-MD* 〕━━━┈⊷
+┃▸╭───────────
+┃▸┃๏ *MUSIC DOWNLOADER*
+┃▸└───────────···๏
+╰────────────────┈⊷
+╭━━❐━⪼
+┇๏ *Tital* -  ${yts.title}
+┇๏ *Duration* - ${yts.timestamp}
+┇๏ *Views* -  ${yts.views}
+┇๏ *Author* -  ${yts.author.name} 
+┇๏ *Link* -  ${yts.url}
+╰━━❑━⪼
+> *© Pᴏᴡᴇʀᴇᴅ Bʏ CHAMA-Aɪ ♡*`;
+
+        // Send song details and thumbnail
+        await conn.sendMessage(from, { image: { url: data.result.image || '' }, caption: ytmsg }, { quoted: mek });
+        
+        // Send audio file as standard message
+        await conn.sendMessage(from, { audio: { url: data.result.downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
+        
+        // Send audio file as voice note
+        await conn.sendMessage(from, { audio: { url: data.result.downloadUrl }, mimetype: "audio/mpeg", ptt: true }, { quoted: mek });
+        
+        // Send document file (optional)
+        await conn.sendMessage(from, { 
+            document: { url: data.result.downloadUrl }, 
+            mimetype: "audio/mpeg", 
+            fileName: `${data.result.title}.mp3`, 
+            caption: `> *${yts.title}*\n> *© Pᴏᴡᴇʀᴇʀᴇᴅ Bʏ CHAMA-Aɪ ♡*`
+        }, { quoted: mek });
+
+    } catch (e) {
+        console.log(e);
+        reply("An error occurred. Please try again later.");
     }
-
-    const video = searchResults.videos[0];
-    const videoUrl = video.url;
-    const thumbnail = video.thumbnail;
-    const title = video.title;
-    const duration = video.timestamp;
-    const channel = video.author.name;
-
-    // Fetch MP4 download link using the API
-    const apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp4?url=${videoUrl}`;
-    const response = await axios.get(apiUrl);
-
-    if (!response.data.success || !response.data.result.download_url) {
-      await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-      return reply("❌ Failed to fetch the MP4 file.");
-    }
-
-    const mp4Url = response.data.result.download_url;
-
-    // Send video details with thumbnail
-    const captionText = `🎬 *Video Details:*
-
-`
-      + `👋 *HELLO* ${pushname}
-`
-      + `🌍 *Your Location:* _${location}_
-`
-      + `⏰ *Current Time:* _${userTime}_
-`
-      + `📌 *Title:* ${title}
-`
-      + `⏳ *Duration:* ${duration}
-`
-      + `📺 *Channel:* ${channel}
-`
-      + `🔗 *YouTube Link:* ${videoUrl}
-\n\n`;
-
-    // Send Image with details
-    await conn.sendMessage(from, {
-      image: { url: thumbnail },
-      caption: captionText
-    }, { quoted: mek });
-
-    // Short message
-    const shortMessage = `Here's your video, *${title}* 🎬 Enjoy!`;
-
-    // Send MP4 video file
-    await conn.sendMessage(from, {
-      video: { url: mp4Url },
-      mimetype: 'video/mp4',
-      fileName: `${title}.mp4`,
-      caption: shortMessage
-    });
-
-    await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
-
-  } catch (error) {
-    console.error("Error:", error);
-    await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-
-    // Notify user without error details
-    reply("❌ Sorry, an error occurred while processing your request. Please try again later.");
-
-    // Send the error to bot owner (94783314361)
-    const errorMessage = `🚨 *Bot Error Alert!*\n\n`
-      + `📌 *Command:* .song\n`
-      + `👤 *User:* ${pushname}\n`
-      + `📍 *Group/Chat:* ${from}\n`
-      + `⏳ *Time:* ${new Date().toLocaleString()}\n\n`
-      + `💢 *Error:* ${error.message}\n`
-      + `📜 *Stack Trace:* ${error.stack ? error.stack.split("\n")[0] : "N/A"}`;
-
-    await conn.sendMessage("94783314361@s.whatsapp.net", { text: errorMessage });
-  }
 });
