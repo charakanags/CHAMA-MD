@@ -28,7 +28,7 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
 
-        let ytmsg = `📹 *Video Details*\n🎬 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}\n📷 *Thumbnail:* ${yts.thumbnail}`;
+        let ytmsg = `📹 *Video Details*\n🎬 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}`;
         
         let contextInfo = {
             mentionedJid: [m.sender],
@@ -43,7 +43,10 @@ cmd({
 
         // Send video details as forwarded message
         await conn.sendMessage(from, { text: ytmsg, contextInfo }, { quoted: mek });
-        
+
+        // Send the thumbnail as an image
+        await conn.sendMessage(from, { image: { url: yts.thumbnail }, caption: ytmsg, contextInfo }, { quoted: mek });
+
         // Send video as forwarded document
         await conn.sendMessage(from, { document: { url: data.result.download_url }, mimetype: "video/mp4", fileName: `${yts.title}.mp4`, contextInfo }, { quoted: mek });
         
@@ -82,7 +85,7 @@ cmd({
             return reply("Failed to fetch the audio. Please try again later.");
         }
         
-        let ytmsg = `🎵 *Song Details*\n🎶 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}\n📷 *Thumbnail:* ${yts.thumbnail}`;
+        let ytmsg = `🎵 *Song Details*\n🎶 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}`;
         
         let contextInfo = {
             mentionedJid: [m.sender],
@@ -97,7 +100,10 @@ cmd({
         
         // Send song details as forwarded message
         await conn.sendMessage(from, { text: ytmsg, contextInfo }, { quoted: mek });
-        
+
+        // Send the thumbnail as an image
+        await conn.sendMessage(from, { image: { url: yts.thumbnail }, caption: ytmsg, contextInfo }, { quoted: mek });
+
         // Send audio as forwarded document
         await conn.sendMessage(from, { document: { url: data.result.downloadUrl }, mimetype: "audio/mpeg", fileName: `${yts.title}.mp3`, contextInfo }, { quoted: mek });
         
