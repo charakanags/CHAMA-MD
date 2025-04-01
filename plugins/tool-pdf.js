@@ -4,45 +4,44 @@ const { Buffer } = require('buffer');
 
 cmd({
     pattern: "topdf",
-    alias: ["pdf","topdf"],use: '.topdf',
+    alias: ["pdf", "topdf"],
+    use: '.topdf',
     desc: "Convert provided text to a PDF file.",
-    react: "📄",
+    react: "📮",
     category: "utilities",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+async (conn, mek, m, { from, quoted, q, reply }) => {
     try {
-        if (!q) return reply("Please provide the text you want to convert to PDF. *Eg* `.topdf` *Pakistan ZindaBad 🇵🇰*");
+        if (!q) {
+            return reply("Please provide the text you want to convert to PDF. *Eg* `.topdf Pakistan ZindaBad 🇵🇰` ");
+        }
 
         // Create a new PDF document
         const doc = new PDFDocument();
         let buffers = [];
-        doc.on('data', buffers.push.bind(buffers));
+
+        doc.on('data', chunk => buffers.push(chunk));
         doc.on('end', async () => {
             const pdfData = Buffer.concat(buffers);
-
-            // Send the PDF file
+            
+            // Send the generated PDF file
             await conn.sendMessage(from, {
                 document: pdfData,
                 mimetype: 'application/pdf',
-                fileName: 'JawadTech.pdf',
-                caption: `
-*📄 PDF created successully!*
-
-> © Created By CHAMINDU 💜`
+                fileName: 'Generated.pdf',
+                caption: "*📄 PDF created successfully!\n\n> © Created By CHAMINDU 💜*"
             }, { quoted: mek });
         });
 
         // Add text to the PDF
-        doc.text(q);
-
-        // Finalize the PDF and end the stream
+        doc.text(q, { align: 'left' });
+        
+        // Finalize and close the PDF document
         doc.end();
 
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
+    } catch (error) {
+        console.error(error);
+        reply(`Error: ${error.message}`);
     }
 });
-                      
- 
