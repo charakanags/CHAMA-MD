@@ -3,7 +3,6 @@ const { cmd } = require('../command');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 
 // video download
-
 cmd({ 
     pattern: "mp4", 
     alias: ["video"], 
@@ -29,7 +28,7 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
 
-        let ytmsg = `📹 *Video Details*\n🎬 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}`;
+        let ytmsg = `📹 *Video Details*\n🎬 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}\n📷 *Thumbnail:* ${yts.thumbnail}`;
         
         let contextInfo = {
             mentionedJid: [m.sender],
@@ -56,9 +55,8 @@ cmd({
         reply("An error occurred. Please try again later.");
     }
 });  
-       
-// song download
 
+// song download
 cmd({ 
     pattern: "song", 
     alias: ["ytdl3", "play"], 
@@ -84,7 +82,7 @@ cmd({
             return reply("Failed to fetch the audio. Please try again later.");
         }
         
-        let ytmsg = `🎵 *Song Details*\n🎶 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}`;
+        let ytmsg = `🎵 *Song Details*\n🎶 *Title:* ${yts.title}\n⏳ *Duration:* ${yts.timestamp}\n👀 *Views:* ${yts.views}\n👤 *Author:* ${yts.author.name}\n🔗 *Link:* ${yts.url}\n📷 *Thumbnail:* ${yts.thumbnail}`;
         
         let contextInfo = {
             mentionedJid: [m.sender],
