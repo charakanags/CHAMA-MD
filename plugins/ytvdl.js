@@ -33,7 +33,7 @@ async function ytmp3(url,base, apikey) {
 
     return {
       status: true,
-      Created_by: "CHAMINDU",
+      Created_by: "Janith Rashmika",
       dl_link: data.downloadLink,
     };
   } catch (error) {
@@ -74,7 +74,7 @@ async function ytmp44(url,base, quality, apikey) {
 
     return {
       status: true,
-      Created_by: "CHAMINDU",
+      Created_by: "Janith Rashmika",
       quality: data.quality,
       dl_link: data.downloadLink,
     };
@@ -99,7 +99,7 @@ cmd({
             const url = data.url;
     
             let desc = `
-    ⫷⦁[ * '-'_꩜ ☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗 𝙎𝙊𝙉𝙂 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙀𝙍 ꩜_'-' * ]⦁⫸
+    ⫷⦁[ * '-'_꩜ 𝙌𝙐𝙀𝙀𝙉 𝘼𝙉𝙅𝙐 𝙎𝙊𝙉𝙂 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙀𝙍 ꩜_'-' * ]⦁⫸
     
     🎵 *Song Found!* 
     
@@ -109,16 +109,17 @@ cmd({
     ➥ *Uploaded On:* ${data.ago} 
     ➥ *Link:* ${data.url} 
     
-    🎧 *Enjoy the music brought to you by* *Chama Mb Bot*! 
+    🎧 *Enjoy the music brought to you by* *Queen Anju Bot*! 
     
     🔽 *To download send:*
     
     1. *Audio File* 🎶
     2. *Document File* 📂
     
-    > *Created with ❤️ by CHAMINDU* 
+    > *Created with ❤️ by Janith Rashmika* 
     
-    > * © ☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗 💚    
+    > * © 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚   
+    *💻 GitHub:* github.com/Mrrashmika/QUEEN_ANJU_MD    
     `;
     let info = `
     🎥 *MP3 Download Found!* 
@@ -138,21 +139,21 @@ cmd({
                 image: { url: data.thumbnail}, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                 caption: desc,
                 contextInfo: {
-                    mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                    mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                     groupMentions: [],
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363395257960673@newsletter',
-                        newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                        newsletterJid: '120363299978149557@newsletter',
+                        newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                         serverMessageId: 999
                     },
                     externalAdReply: {
-                        title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                        body: ' ©𝐌𝐑 𝙲𝙷𝙰𝙼𝙸𝙽𝙳𝚄� 𝐎𝐅𝐂 💚',
+                        title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                        body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                         mediaType: 1,
-                        sourceUrl: "https://github.com",
-                        thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                        sourceUrl: "https://github.com/Mrrashmika",
+                        thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                         renderLargerThumbnail: false,
                         showAdAttribution: true
                     }
@@ -204,13 +205,13 @@ cmd({
                                 fileName: `${data.title}.mp3`,
                                 caption: info,
                                 contextInfo: {
-                                    mentionedJid: ['94783314361@s.whatsapp.net'],
+                                    mentionedJid: ['94717775628@s.whatsapp.net'],
                                     externalAdReply: {
-                                        title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                                        body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                                        title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                                        body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                                         mediaType: 1,
-                                        sourceUrl: "https://github.com/Cʜɪɴᴅᴜ ",
-                                        thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg',
+                                        sourceUrl: "https://github.com/Mrrashmika",
+                                        thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg',
                                         renderLargerThumbnail: false,
                                         showAdAttribution: true
                                     }
@@ -262,7 +263,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
             const url = data.url;
     
             let desc = `
-    ⫷⦁[ * '-'_꩜ ☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗 𝙑𝙄𝘿𝙀𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙀𝙍 ꩜_'-' * ]⦁⫸ 
+    ⫷⦁[ * '-'_꩜ 𝙌𝙐𝙀𝙀𝙉 𝘼𝙉𝙅𝙐 𝙑𝙄𝘿𝙀𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙀𝙍 ꩜_'-' * ]⦁⫸ 
     
     🎥 *Video Found!* 
     
@@ -272,7 +273,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
     ➥ *Uploaded On:* ${data.ago} 
     ➥ *Link:* ${data.url} 
     
-    🎬 *Enjoy the video brought to you by* *Chama Md Bot*! 
+    🎬 *Enjoy the video brought to you by* *Queen Anju Bot*! 
     
     🔽 *To download send:*
     
@@ -289,7 +290,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
     
     > *Created with ❤️ by Janith Rashmika* 
     
-    > *CHAMA - MD*  
+    > *© 𝙌𝙐𝙀𝙀𝙉 𝘼𝙉𝙅𝙐 𝘽𝙊𝙏 - MD*  
+    *💻 GitHub:* github.com/Mrrashmika/QUEEN_ANJU_MD
     `;
     let info = `
     🎥 *MP4 Download Found!* 
@@ -300,7 +302,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
     ➥ *Uploaded On:* ${data.ago} 
     ➥ *Link:* ${data.url} 
     
-    🎬 *Enjoy the video brought to you by Chama Md !* 
+    🎬 *Enjoy the video brought to you by Queen Anju Bot!* 
     `
     
     
@@ -309,21 +311,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                 image: { url: data.thumbnail}, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                 caption: desc,
                 contextInfo: {
-                    mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                    mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                     groupMentions: [],
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363395257960673@newsletter',
-                        newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                        newsletterJid: '120363299978149557@newsletter',
+                        newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                         serverMessageId: 999
                     },
                     externalAdReply: {
-                        title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                        body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                        title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                        body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                         mediaType: 1,
-                        sourceUrl: "https://github.com/",
-                        thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                        sourceUrl: "https://github.com/Mrrashmika",
+                        thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                         renderLargerThumbnail: false,
                         showAdAttribution: true
                     }
@@ -351,21 +353,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                     video: { url: downloadUrl}, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                     caption: info,
                     contextInfo: {
-                        mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                        mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                         groupMentions: [],
                         forwardingScore: 999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363395257960673@newsletter',
-                            newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                            newsletterJid: '120363299978149557@newsletter',
+                            newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                             serverMessageId: 999
                         },
                         externalAdReply: {
-                            title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                            body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                            title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                            body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                             mediaType: 1,
-                            sourceUrl: "https://github.com/",
-                            thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                            sourceUrl: "https://github.com/Mrrashmika",
+                            thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                             renderLargerThumbnail: false,
                             showAdAttribution: true
                         }
@@ -381,21 +383,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                     video: { url: downloadUrl}, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                     caption: info,
                     contextInfo: {
-                        mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                        mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                         groupMentions: [],
                         forwardingScore: 999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363395257960673@newsletter',
-                            newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                            newsletterJid: '120363299978149557@newsletter',
+                            newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                             serverMessageId: 999
                         },
                         externalAdReply: {
-                            title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                            body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                            title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                            body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                             mediaType: 1,
-                            sourceUrl: "https://github.com/",
-                            thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                            sourceUrl: "https://github.com/Mrrashmika",
+                            thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                             renderLargerThumbnail: false,
                             showAdAttribution: true
                         }
@@ -411,21 +413,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                     video: { url: downloadUrl}, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                     caption: info,
                     contextInfo: {
-                        mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                        mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                         groupMentions: [],
                         forwardingScore: 999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363395257960673@newsletter',
-                            newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                            newsletterJid: '120363299978149557@newsletter',
+                            newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                             serverMessageId: 999
                         },
                         externalAdReply: {
-                            title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                            body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                            title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                            body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                             mediaType: 1,
-                            sourceUrl: "https://github.com/",
-                            thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                            sourceUrl: "https://github.com/Mrrashmika",
+                            thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                             renderLargerThumbnail: false,
                             showAdAttribution: true
                         }
@@ -441,21 +443,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                     video: { url: downloadUrl}, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                     caption: info,
                     contextInfo: {
-                        mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                        mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                         groupMentions: [],
                         forwardingScore: 999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363395257960673@newsletter',
-                            newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                            newsletterJid: '120363299978149557@newsletter',
+                            newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                             serverMessageId: 999
                         },
                         externalAdReply: {
-                            title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                            body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                            title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                            body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                             mediaType: 1,
-                            sourceUrl: "https://github.com/",
-                            thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                            sourceUrl: "https://github.com/Mrrashmika",
+                            thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                             renderLargerThumbnail: false,
                             showAdAttribution: true
                         }
@@ -474,21 +476,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                             fileName: `${data.title}.mp4`, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                             caption: info,
                             contextInfo: {
-                                mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                                mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                                 groupMentions: [],
                                 forwardingScore: 999,
                                 isForwarded: true,
                                 forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363395257960673@newsletter',
-                                    newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                                    newsletterJid: '120363299978149557@newsletter',
+                                    newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                                     serverMessageId: 999
                                 },
                                 externalAdReply: {
-                                    title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                                    body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                                    title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                                    body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                                     mediaType: 1,
-                                    sourceUrl: "https://github.com/",
-                                    thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                                    sourceUrl: "https://github.com/Mrrashmika",
+                                    thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                                     renderLargerThumbnail: false,
                                     showAdAttribution: true
                                 }
@@ -507,21 +509,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                             fileName: `${data.title}.mp4`, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                             caption: info,
                             contextInfo: {
-                                mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                                mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                                 groupMentions: [],
                                 forwardingScore: 999,
                                 isForwarded: true,
                                 forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363395257960673@newsletter',
-                                    newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                                    newsletterJid: '120363299978149557@newsletter',
+                                    newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                                     serverMessageId: 999
                                 },
                                 externalAdReply: {
-                                    title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                                    body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                                    title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                                    body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                                     mediaType: 1,
-                                    sourceUrl: "https://github.com/",
-                                    thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                                    sourceUrl: "https://github.com/Mrrashmika",
+                                    thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                                     renderLargerThumbnail: false,
                                     showAdAttribution: true
                                 }
@@ -540,21 +542,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                             fileName: `${data.title}.mp4`, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                             caption: info,
                             contextInfo: {
-                                mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                                mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                                 groupMentions: [],
                                 forwardingScore: 999,
                                 isForwarded: true,
                                 forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363395257960673@newsletter',
-                                    newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                                    newsletterJid: '120363299978149557@newsletter',
+                                    newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                                     serverMessageId: 999
                                 },
                                 externalAdReply: {
-                                    title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                                    body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                                    title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                                    body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                                     mediaType: 1,
-                                    sourceUrl: "https://github.com/",
-                                    thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                                    sourceUrl: "https://github.com/Mrrashmika",
+                                    thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                                     renderLargerThumbnail: false,
                                     showAdAttribution: true
                                 }
@@ -573,21 +575,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup,apik
                             fileName: `${data.title}.mp4`, // Ensure `img.allmenu` is a valid image URL or base64 encoded image
                             caption: info,
                             contextInfo: {
-                                mentionedJid: ['94783314361@s.whatsapp.net'], // specify mentioned JID(s) if any
+                                mentionedJid: ['94717775628@s.whatsapp.net'], // specify mentioned JID(s) if any
                                 groupMentions: [],
                                 forwardingScore: 999,
                                 isForwarded: true,
                                 forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363395257960673@newsletter',
-                                    newsletterName: "☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗",
+                                    newsletterJid: '120363299978149557@newsletter',
+                                    newsletterName: "© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚",
                                     serverMessageId: 999
                                 },
                                 externalAdReply: {
-                                    title: '☈☟𝗖𝗛𝗔𝗠𝗔 𝗠𝗗',
-                                    body: ' ©𝐌𝐑 Cʜɪɴᴅᴜ  𝐎𝐅𝐂 💚',
+                                    title: '© 𝚀𝚄𝙴𝙴𝙽 𝙰𝙽𝙹𝚄 𝗑ᴾᴿᴼ 💚',
+                                    body: ' ©𝐌𝐑 𝐑𝐀𝐒𝐇𝐌𝐈𝐊𝐀 𝐎𝐅𝐂 💚',
                                     mediaType: 1,
-                                    sourceUrl: "https://github.com/",
-                                    thumbnailUrl: 'https://i.ibb.co/KxYGBGdf/8947.jpg', // This should match the image URL provided above
+                                    sourceUrl: "https://github.com/Mrrashmika",
+                                    thumbnailUrl: 'https://raw.githubusercontent.com/RASH-DATA/ANJU-DATA/refs/heads/main/LOGOS/thisjpg.jpg', // This should match the image URL provided above
                                     renderLargerThumbnail: false,
                                     showAdAttribution: true
                                 }
